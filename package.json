@@ -2,6 +2,7 @@
   "name": "mf-navigation-demo",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r --parallel build",
@@ -18,5 +19,8 @@
   "engines": {
     "node": ">=16.0.0",
     "pnpm": ">=8.0.0"
+  },
+  "dependencies": {
+    "@module-federation/enhanced": "^0.10.0"
   }
 }

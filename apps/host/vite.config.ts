@@ -9,38 +9,47 @@ export default defineConfig({
       name: 'host',
       remotes: {
         remote: {
-          external: 'http://localhost:5001/remoteEntry.js',
-          from: 'vite',
-          externalType: 'url'
-        }
+          name: 'remote',
+          entry: 'http://localhost:5001/mf-manifest.json',
+        },
       },
       shared: {
         react: {
           singleton: true,
-          requiredVersion: '18.3.1'
+          requiredVersion: '18.3.1',
         },
         'react-dom': {
           singleton: true,
-          requiredVersion: '18.3.1'
+          requiredVersion: '18.3.1',
         },
         antd: {
           singleton: true,
-          requiredVersion: '5.22.2'
+          requiredVersion: '5.22.2',
         },
         '@ant-design/pro-components': {
           singleton: true,
-          requiredVersion: '2.8.0'
-        }
-      }
-    })
+          requiredVersion: '2.8.0',
+        },
+      },
+    }),
   ],
+  resolve: {
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
+  },
   server: {
-    port: 5000
+    port: 5002,
+    host: true,
+    origin: 'http://localhost:5002',
+    cors: true,
+    // fs: {
+    //   strict: false,
+    //   allow: ['..'],
+    // },
   },
   build: {
     modulePreload: false,
     target: 'esnext',
     minify: false,
-    cssCodeSplit: false
-  }
-}); 
+    cssCodeSplit: false,
+  },
+});
