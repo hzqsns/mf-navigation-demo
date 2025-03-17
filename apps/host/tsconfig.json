@@ -1,4 +1,17 @@
+// {
+//   "include": ["./@mf-types/*"]
+
+// }
+
 {
-  "include": ["./@mf-types/*"]
-  
+  "extends": "../../tsconfig.app.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["vite/client"]
+  },
+  "include": ["src/**/*", "./@mf-types/**/*", "vite.config.ts"]
 }

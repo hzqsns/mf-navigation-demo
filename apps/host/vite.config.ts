@@ -1,10 +1,15 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { federation } from '@module-federation/vite';
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
   plugins: [
     react(),
+    visualizer({
+      // 打包完成后自动打开浏览器，显示产物体积报告
+      open: true,
+    }),
     federation({
       name: 'host',
       remotes: {
