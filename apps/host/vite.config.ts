@@ -1,14 +1,15 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { federation } from '@module-federation/vite';
-import { visualizer } from "rollup-plugin-visualizer";
+import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig({
+  base: '/',
   plugins: [
     react(),
     visualizer({
       // 打包完成后自动打开浏览器，显示产物体积报告
-      open: true,
+      open: false,
     }),
     federation({
       name: 'host',
@@ -17,6 +18,9 @@ export default defineConfig({
           name: 'remote',
           entry: 'http://localhost:5001/mf-manifest.json',
         },
+      },
+      exposes: {
+        './App': './src/App',
       },
       shared: {
         react: {
@@ -51,10 +55,23 @@ export default defineConfig({
     //   allow: ['..'],
     // },
   },
+  preview: {
+    port: 5002,
+    host: true,
+    strictPort: true,
+  },
   build: {
-    modulePreload: false,
+    modulePreload: true,
     target: 'esnext',
     minify: false,
     cssCodeSplit: false,
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]',
+      },
+    },
   },
 });
