@@ -3,6 +3,12 @@ import {
   CrownFilled,
   SmileFilled,
   TabletFilled,
+  AppstoreOutlined,
+  BarChartOutlined,
+  CloudServerOutlined,
+  CodeOutlined,
+  DashboardOutlined,
+  RocketOutlined,
 } from '@ant-design/icons';
 
 export default {
@@ -20,6 +26,24 @@ export default {
         name: '子应用',
         icon: <CrownFilled />,
         component: './Remote',
+      },
+      {
+        path: '/monitor',
+        name: '监控面板',
+        icon: <DashboardOutlined />,
+        component: './MonitorDashboard',
+      },
+      {
+        path: '/services',
+        name: '服务管理',
+        icon: <CloudServerOutlined />,
+        component: './ServiceList',
+      },
+      {
+        path: '/deployment',
+        name: '部署管理',
+        icon: <RocketOutlined />,
+        component: './DeploymentForm',
       },
       {
         path: '/admin',
@@ -100,4 +124,4 @@ export default {
       url: 'https://procomponents.ant.design/',
     },
   ],
-}; 
+};
