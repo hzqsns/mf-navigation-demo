@@ -20,10 +20,10 @@ const routes: RouteObject[] = [
         path: '/welcome',
         element: <Welcome />,
       },
-      {
-        path: '/remote',
-        element: <Remote />,
-      },
+      // {
+      //   path: '/remote',
+      //   element: <Remote />,
+      // },
       {
         path: '/services',
         element: <ServiceList />,
