@@ -1,7 +1,14 @@
 import { PageContainer, ProCard } from '@ant-design/pro-components';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { onLCP } from 'web-vitals';
 
 const Welcome: React.FC = () => {
+  useEffect(() => {
+    console.log('welcome--->');
+    onLCP((vitals) => {
+      console.log('LCP', vitals);
+    });
+  }, []);
   return (
     <PageContainer title="欢迎">
       <ProCard>

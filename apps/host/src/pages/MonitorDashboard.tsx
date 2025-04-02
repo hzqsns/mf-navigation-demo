@@ -11,6 +11,7 @@ import {
   DatabaseOutlined,
   ClockCircleOutlined,
 } from '@ant-design/icons';
+import { onLCP } from 'web-vitals';
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -58,6 +59,13 @@ const MonitorDashboard: React.FC = () => {
       setLoading(false);
     }, 1000);
   };
+
+  useEffect(() => {
+    console.log('Monitor--->');
+    onLCP((vitals) => {
+      console.log('LCP', vitals);
+    });
+  }, []);
 
   useEffect(() => {
     refreshData();

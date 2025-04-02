@@ -21,6 +21,7 @@
     "pnpm": ">=8.0.0"
   },
   "dependencies": {
-    "@module-federation/enhanced": "^0.10.0"
+    "@module-federation/enhanced": "^0.10.0",
+    "web-vitals": "3.5.2"
   }
 }
